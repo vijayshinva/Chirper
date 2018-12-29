@@ -3,7 +3,55 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.106
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chirper.Domain", "Chirper.Domain\Chirper.Domain.csproj", "{2AF1E16B-EED1-4038-8D19-9FE5556486A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chirper.Domain.Messages", "Chirper.Domain.Messages\Chirper.Domain.Messages.csproj", "{52B1377E-1317-474F-BED9-FAD631BDABAF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chirper.Domain.Host", "Chirper.Domain.Host\Chirper.Domain.Host.csproj", "{0CB53ADD-54D4-42D6-A321-2BAF7A6247A2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chirper.Utilities", "Chirper.Utilities\Chirper.Utilities.csproj", "{A102222F-ACEB-448C-B6CE-328BF63D3CAF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chirper.Domain.WebApi", "Chirper.Domain.WebApi\Chirper.Domain.WebApi.csproj", "{E901A0DC-72FC-422C-88BC-9A29FB17A91B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chirper.Identity", "Chirper.Identity\Chirper.Identity.csproj", "{B84266BC-8383-4F66-A22A-4504DC0040F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chirper.Web", "Chirper.Web\Chirper.Web.csproj", "{EE02B97D-D611-443E-AEDD-FB4EFE126DD6}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2AF1E16B-EED1-4038-8D19-9FE5556486A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AF1E16B-EED1-4038-8D19-9FE5556486A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AF1E16B-EED1-4038-8D19-9FE5556486A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AF1E16B-EED1-4038-8D19-9FE5556486A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52B1377E-1317-474F-BED9-FAD631BDABAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52B1377E-1317-474F-BED9-FAD631BDABAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52B1377E-1317-474F-BED9-FAD631BDABAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52B1377E-1317-474F-BED9-FAD631BDABAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CB53ADD-54D4-42D6-A321-2BAF7A6247A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CB53ADD-54D4-42D6-A321-2BAF7A6247A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CB53ADD-54D4-42D6-A321-2BAF7A6247A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CB53ADD-54D4-42D6-A321-2BAF7A6247A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A102222F-ACEB-448C-B6CE-328BF63D3CAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A102222F-ACEB-448C-B6CE-328BF63D3CAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A102222F-ACEB-448C-B6CE-328BF63D3CAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A102222F-ACEB-448C-B6CE-328BF63D3CAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E901A0DC-72FC-422C-88BC-9A29FB17A91B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E901A0DC-72FC-422C-88BC-9A29FB17A91B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E901A0DC-72FC-422C-88BC-9A29FB17A91B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E901A0DC-72FC-422C-88BC-9A29FB17A91B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B84266BC-8383-4F66-A22A-4504DC0040F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B84266BC-8383-4F66-A22A-4504DC0040F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B84266BC-8383-4F66-A22A-4504DC0040F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B84266BC-8383-4F66-A22A-4504DC0040F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE02B97D-D611-443E-AEDD-FB4EFE126DD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE02B97D-D611-443E-AEDD-FB4EFE126DD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE02B97D-D611-443E-AEDD-FB4EFE126DD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE02B97D-D611-443E-AEDD-FB4EFE126DD6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
