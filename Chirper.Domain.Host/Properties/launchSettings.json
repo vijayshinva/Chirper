@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Chirper.Domain.Host": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "CHIRPER_PORT": "8090"
+      }
+    }
+  }
+}
