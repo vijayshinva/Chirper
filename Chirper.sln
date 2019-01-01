@@ -3,15 +3,20 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.106
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chirper.Domain", "Chirper.Domain\Chirper.Domain.csproj", "{2AF1E16B-EED1-4038-8D19-9FE5556486A5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chirper.Domain", "Chirper.Domain\Chirper.Domain.csproj", "{2AF1E16B-EED1-4038-8D19-9FE5556486A5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chirper.Domain.Host", "Chirper.Domain.Host\Chirper.Domain.Host.csproj", "{0CB53ADD-54D4-42D6-A321-2BAF7A6247A2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chirper.Domain.Host", "Chirper.Domain.Host\Chirper.Domain.Host.csproj", "{0CB53ADD-54D4-42D6-A321-2BAF7A6247A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chirper.Domain.WebApi", "Chirper.Domain.WebApi\Chirper.Domain.WebApi.csproj", "{E901A0DC-72FC-422C-88BC-9A29FB17A91B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chirper.Domain.WebApi", "Chirper.Domain.WebApi\Chirper.Domain.WebApi.csproj", "{E901A0DC-72FC-422C-88BC-9A29FB17A91B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chirper.Identity", "Chirper.Identity\Chirper.Identity.csproj", "{B84266BC-8383-4F66-A22A-4504DC0040F5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chirper.Identity", "Chirper.Identity\Chirper.Identity.csproj", "{B84266BC-8383-4F66-A22A-4504DC0040F5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chirper.Web", "Chirper.Web\Chirper.Web.csproj", "{EE02B97D-D611-443E-AEDD-FB4EFE126DD6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chirper.Web", "Chirper.Web\Chirper.Web.csproj", "{EE02B97D-D611-443E-AEDD-FB4EFE126DD6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{179733CE-0638-4BA6-82E7-5A681AA41A90}"
+	ProjectSection(SolutionItems) = preProject
+		.travis.yml = .travis.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

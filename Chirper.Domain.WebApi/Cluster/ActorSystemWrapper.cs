@@ -53,7 +53,7 @@ namespace Chirper.Domain.WebApi.Cluster
             IActorRef region = await ClusterSharding.Get(ActorSystem).StartAsync(
                 typeName: "ChirpUser",
                 entityProps: Props.Create(() => new ChirpUser(chirpUserId)),
-                settings: ClusterShardingSettings.Create(ActorSystem).WithRole("webapi"),
+                settings: ClusterShardingSettings.Create(ActorSystem).WithRole("chirper"),
                 messageExtractor: new MessageExtractor());
 
             region.Tell(new ShardEnvelope(chirpUserId, message));

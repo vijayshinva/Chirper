@@ -1,0 +1,15 @@
+language: csharp
+solution: Chirper.sln
+services:
+  - docker
+
+script:
+  - docker build .
+  
+deploy:
+  provider: script
+  script: 
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+    - docker push vijayshinva/chirper
+  on:
+    branch: master
