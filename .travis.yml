@@ -1,5 +1,8 @@
 language: csharp
 solution: Chirper.sln
+mono: none  
+dotnet: 2.1.6
+
 services:
   - docker
 
