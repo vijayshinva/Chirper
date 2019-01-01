@@ -1,17 +1,21 @@
 language: csharp
 solution: Chirper.sln
 mono: none  
-dotnet: 2.1.6
+dotnet: 2.1.500
 
 services:
   - docker
 
+install:
+  - dotnet restore
+
 script:
-  - docker build .
+  - dotnet build
   
 deploy:
   provider: script
   script: 
+    - docker build .
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
     - docker push vijayshinva/chirper
   on:
