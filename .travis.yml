@@ -3,21 +3,9 @@ solution: Chirper.sln
 mono: none
 dotnet: 2.1.500
 
-services:
-  - docker
-
 install:
   - dotnet restore
 
 script:
   - dotnet build
   - dotnet test
-
-deploy:
-  provider: script
-  script:
-    - docker build .
-    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-    - docker push vijayshinva/chirper
-  on:
-    branch: master
