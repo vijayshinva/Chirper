@@ -1,12 +1,12 @@
-# Default values for Chirper.Helm.
+# Default values for chirper-identity.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
 replicaCount: 1
 
 image:
-  repository: nginx
-  tag: stable
+  repository: vijayshinva/chirper-identity
+  tag: latest
   pullPolicy: IfNotPresent
 
 nameOverride: ""

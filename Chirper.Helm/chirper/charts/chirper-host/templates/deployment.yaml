@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "Chirper.Helm.fullname" . }}
+  name: {{ include "chirper-host.fullname" . }}
   labels:
-    app.kubernetes.io/name: {{ include "Chirper.Helm.name" . }}
-    helm.sh/chart: {{ include "Chirper.Helm.chart" . }}
+    app.kubernetes.io/name: {{ include "chirper-host.name" . }}
+    helm.sh/chart: {{ include "chirper-host.chart" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
     app.kubernetes.io/managed-by: {{ .Release.Service }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app.kubernetes.io/name: {{ include "Chirper.Helm.name" . }}
+      app.kubernetes.io/name: {{ include "chirper-host.name" . }}
       app.kubernetes.io/instance: {{ .Release.Name }}
   template:
     metadata:
       labels:
-        app.kubernetes.io/name: {{ include "Chirper.Helm.name" . }}
+        app.kubernetes.io/name: {{ include "chirper-host.name" . }}
         app.kubernetes.io/instance: {{ .Release.Name }}
     spec:
       containers:
