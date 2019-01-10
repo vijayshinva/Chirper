@@ -18,4 +18,4 @@ RUN dotnet publish "Chirper.Domain.WebApi.csproj" -c Release -o /app
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app .
-ENTRYPOINT ["dotnet", "Chirper.Domain.WebApi.dll"]
+ENTRYPOINT ["dotnet", "Chirper.Domain.WebApi.dll", "--server.urls", "http://*:80"]

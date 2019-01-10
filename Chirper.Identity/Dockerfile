@@ -17,4 +17,4 @@ RUN dotnet publish "Chirper.Identity.csproj" -c Release -o /app
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app .
-ENTRYPOINT ["dotnet", "Chirper.Identity.dll"]
+ENTRYPOINT ["dotnet", "Chirper.Identity.dll", "--server.urls", "http://*:80"]
