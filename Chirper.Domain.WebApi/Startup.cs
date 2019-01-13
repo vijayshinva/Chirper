@@ -46,7 +46,7 @@ namespace Chirper.Domain.WebApi
             //    app.UseHsts();
             //}
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
             app.UseCors("CorsPolicy");
             app.UseSignalR(route =>
             {
