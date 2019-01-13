@@ -9,20 +9,21 @@ static_resources:
   listeners:
   - name: listener_0_0_0_0
     address:
-	  socket_address:
+      socket_address:
 	    address: 0.0.0.0
 		port_value: 80
 	filter_chains:
 	- filters:
 	  - name: envoy.http_connection_manager
-		config: 
+		config:
 		  codec_type: auto
 		  stat_prefix: ingress_http
 		  route_config:
 		    name: local_route
-			virtual_hosts: 
+			virtual_hosts:
 			- name:  chirper_web_service_host
-			  domains: ["*"]
+			  domains:
+			  - "*"
 			  routes:
 			  - match:
 				  prefix: "/"
@@ -38,8 +39,6 @@ clusters:
   lb_policy: round_robin
   http2_protocol_options:
   hosts:
-    socket_address: 
+    socket_address:
 	  address: chirper-web
 	  port: 80
-
-		    

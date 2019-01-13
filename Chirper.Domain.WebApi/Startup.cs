@@ -41,10 +41,10 @@ namespace Chirper.Domain.WebApi
             {
                 app.UseDeveloperExceptionPage();
             }
-            else
-            {
-                app.UseHsts();
-            }
+            //else
+            //{
+            //    app.UseHsts();
+            //}
 
             app.UseHttpsRedirection();
             app.UseCors("CorsPolicy");
