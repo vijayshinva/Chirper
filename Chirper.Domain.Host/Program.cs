@@ -82,21 +82,21 @@ namespace Chirper.Domain.Host
                 }
             ");
 
-            Task.Run(() =>
-            {
-                using (ActorSystem system = ActorSystem.Create("chirper", config))
-                {
-                    Console.WriteLine("Server start.");
-                    Console.ReadLine();
-                }
-            });
-
             Console.CancelKeyPress += (o, e) =>
             {
                 Console.WriteLine("Server exit.");
                 waitHandle.Set();
             };
-            waitHandle.WaitOne();
+
+            Task.Run(() =>
+            {
+                using (ActorSystem system = ActorSystem.Create("chirper", config))
+                {
+                    Console.WriteLine("Server start. Press Ctrl+C to exit.");
+                    waitHandle.WaitOne();
+                }
+            });
+            
         }
     }
 }

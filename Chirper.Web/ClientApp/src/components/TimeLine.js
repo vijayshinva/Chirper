@@ -14,7 +14,7 @@ export class TimeLine extends Component {
 
     componentDidMount = () => {
         const hubConnection = new HubConnectionBuilder()
-            .withUrl("https://localhost:44313/chirphub")
+            .withUrl("http://localhost:57579/chirphub")
             .configureLogging(LogLevel.Information)
             .build();
         hubConnection.on("ReceiveMessage", (user, message) => {

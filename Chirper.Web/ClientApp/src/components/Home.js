@@ -29,7 +29,7 @@ export class Home extends Component {
     }
 
     postTweet() {
-        fetch('https://localhost:44313/api/messages', {
+        fetch('http://localhost:57579/api/messages', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
