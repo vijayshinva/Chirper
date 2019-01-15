@@ -1,11 +1,14 @@
 ﻿using Akka.Actor;
 using Akka.Configuration;
 using System;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Chirper.Domain.Host
 {
     internal class Program
     {
+        private static readonly AutoResetEvent waitHandle = new AutoResetEvent(false);
         private static void Main(string[] args)
         {
             string port = Environment.GetEnvironmentVariable("CHIRPER_PORT");
@@ -78,12 +81,22 @@ namespace Chirper.Domain.Host
                     }
                 }
             ");
-            using (ActorSystem system = ActorSystem.Create("chirper", config))
+
+            Task.Run(() =>
             {
-                Console.WriteLine("Server start.");
-                Console.ReadLine();
+                using (ActorSystem system = ActorSystem.Create("chirper", config))
+                {
+                    Console.WriteLine("Server start.");
+                    Console.ReadLine();
+                }
+            });
+
+            Console.CancelKeyPress += (o, e) =>
+            {
                 Console.WriteLine("Server exit.");
-            }
+                waitHandle.Set();
+            };
+            waitHandle.WaitOne();
         }
     }
 }
