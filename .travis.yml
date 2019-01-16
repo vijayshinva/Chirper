@@ -21,4 +21,4 @@ script:
 deploy:
   skip_cleanup: true
   provider: script
-  script: "./dockerhub_deploy.sh"
+  script: chmod +x dockerhub_deploy.sh && ./dockerhub_deploy.sh
