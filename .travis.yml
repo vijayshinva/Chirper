@@ -12,21 +12,11 @@ install:
 script:
   - dotnet build
   - dotnet test
-  - cd Chirper.Domain.Host
-  - docker build -t vijayshinva/chirper:latest .
-  - cd ..
-  - cd Chirper.Identity
-  - docker build -t vijayshinva/chirper-identity:latest .
-  - cd ..
-  - cd Chirper.Domain.WebApi
-  - docker build -t vijayshinva/chirper-webapi:latest .
-  - cd ..
-  - cd Chirper.Web
-  - docker build -t vijayshinva/chirper-web:latest .
-  - cd ..
-  - cd Chirper.Envoy
-  - docker build -t vijayshinva/chirper-front-envoy:latest .
-  - cd ..
+  - docker build -t vijayshinva/chirper:latest Chirper.Domain.Host/
+  - docker build -t vijayshinva/chirper-identity:latest Chirper.Identity/
+  - docker build -t vijayshinva/chirper-webapi:latest Chirper.Domain.WebApi/
+  - docker build -t vijayshinva/chirper-web:latest Chirper.Web/
+  - docker build -t vijayshinva/chirper-front-envoy:latest Chirper.Envoy
 
 deploy:
   provider: script
