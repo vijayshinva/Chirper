@@ -19,6 +19,6 @@ script:
   - docker build -t vijayshinva/chirper-front-envoy:latest Chirper.Envoy
 
 deploy:
+  skip_cleanup: true
   provider: script
-  script: 
-    - dockerhub_deploy.sh
+  script: "./dockerhub_deploy.sh"
