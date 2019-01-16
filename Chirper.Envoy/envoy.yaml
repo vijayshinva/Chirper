@@ -30,6 +30,7 @@ static_resources:
                   cluster: chirper_web_service_cluster
           http_filters:
           - name: envoy.router
+		    config: {}
 clusters:
 - name: chirper_web_service_cluster
   connect_timeout: 0.25s

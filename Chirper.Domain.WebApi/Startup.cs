@@ -27,7 +27,6 @@ namespace Chirper.Domain.WebApi
             builder =>
             {
                 builder.AllowAnyMethod().AllowAnyHeader()
-                       //.WithOrigins("http://localhost:44314")
                        .AllowCredentials();
             }));
             services.AddSingleton(typeof(IActorSystemWrapper), typeof(ActorSystemWrapper));
@@ -41,12 +40,7 @@ namespace Chirper.Domain.WebApi
             {
                 app.UseDeveloperExceptionPage();
             }
-            //else
-            //{
-            //    app.UseHsts();
-            //}
 
-            //app.UseHttpsRedirection();
             app.UseCors("CorsPolicy");
             app.UseSignalR(route =>
             {
