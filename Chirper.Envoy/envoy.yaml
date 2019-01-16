@@ -30,13 +30,13 @@ static_resources:
                   cluster: chirper_web_service_cluster
           http_filters:
           - name: envoy.router
-clusters:
-- name: chirper_web_service_cluster
-  connect_timeout: 0.25s
-  type: strict_dns
-  lb_policy: round_robin
-  http2_protocol_options:
-  hosts:
-  - socket_address:
-      address: chirper-web
-      port: 80
+  clusters:
+  - name: chirper_web_service_cluster
+    connect_timeout: 0.25s
+    type: strict_dns
+    lb_policy: round_robin
+    hosts:
+    - socket_address:
+        protocol: TCP
+        address: chirper-web.svc.cluster.local
+        port_value: 80
