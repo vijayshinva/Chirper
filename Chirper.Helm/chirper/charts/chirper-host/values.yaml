@@ -7,14 +7,14 @@ replicaCount: 1
 image:
   repository: vijayshinva/chirper
   tag: latest
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
 
 nameOverride: ""
 fullnameOverride: ""
 
 service:
   type: ClusterIP
-  port: 80
+  port: 8090
 
 ingress:
   enabled: false
