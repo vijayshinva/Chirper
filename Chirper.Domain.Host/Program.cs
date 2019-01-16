@@ -95,7 +95,8 @@ namespace Chirper.Domain.Host
                     Console.WriteLine("Server start. Press Ctrl+C to exit.");
                     waitHandle.WaitOne();
                 }
-            });   
+            });
+            waitHandle.WaitOne();
         }
     }
 }
