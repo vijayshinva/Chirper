@@ -4,7 +4,6 @@ admin:
     socket_address:
       address: 0.0.0.0
       port_value: 8080
-
 static_resources:
   listeners:
   - name: listener_0_0_0_0
@@ -31,7 +30,6 @@ static_resources:
                   cluster: chirper_web_service_cluster
           http_filters:
           - name: envoy.router
-
 clusters:
 - name: chirper_web_service_cluster
   connect_timeout: 0.25s
@@ -39,6 +37,6 @@ clusters:
   lb_policy: round_robin
   http2_protocol_options:
   hosts:
-    socket_address:
+  - socket_address:
       address: chirper-web
       port: 80
