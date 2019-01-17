@@ -26,17 +26,19 @@ spec:
           args: 
             - "-it"
           ports:
-            - name: http
+            - name: akkaport
               containerPort: 8090
               protocol: TCP
           livenessProbe:
             tcpSocket:
               path: /
-              port: http
+              port: akkaport
+            initialDelaySeconds: 30
           readinessProbe:
             tcpSocket:
               path: /
-              port: http
+              port: akkaport
+            initialDelaySeconds: 30
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
