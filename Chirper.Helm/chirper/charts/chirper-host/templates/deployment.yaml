@@ -27,14 +27,14 @@ spec:
             - "-it"
           ports:
             - name: http
-              containerPort: 80
+              containerPort: 8090
               protocol: TCP
           livenessProbe:
-            httpGet:
+            tcpSocket:
               path: /
               port: http
           readinessProbe:
-            httpGet:
+            tcpSocket:
               path: /
               port: http
           resources:

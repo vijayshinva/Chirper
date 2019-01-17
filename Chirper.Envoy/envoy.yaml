@@ -38,5 +38,5 @@ static_resources:
     hosts:
     - socket_address:
         protocol: TCP
-        address: chirper-web.svc.cluster.local
+        address: chirper-web.default.svc.cluster.local
         port_value: 80
