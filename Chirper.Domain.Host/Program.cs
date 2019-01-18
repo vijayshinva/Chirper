@@ -1,4 +1,5 @@
 ﻿using Akka.Actor;
+using Akka.Bootstrap.Docker;
 using Akka.Configuration;
 using System;
 using System.Threading;
@@ -74,7 +75,7 @@ namespace Chirper.Domain.Host
                         }
                         cassandra-sessions{
                             default {
-                                contact-points = [ ""192.168.56.101"" ]
+                                contact-points = [ ""chirper-cassandra.default.svc.cluster.local"" ]
                                 port = 9042
                             }
                         }
@@ -90,10 +91,11 @@ namespace Chirper.Domain.Host
 
             Task.Run(() =>
             {
-                using (ActorSystem system = ActorSystem.Create("chirper", config))
+                using (ActorSystem system = ActorSystem.Create("chirper", config.BootstrapFromDocker()))
                 {
                     Console.WriteLine("Server start. Press Ctrl+C to exit.");
                     waitHandle.WaitOne();
+                    Console.WriteLine("Server exiting.");
                 }
             });
             waitHandle.WaitOne();

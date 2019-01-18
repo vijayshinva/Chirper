@@ -40,7 +40,7 @@ namespace Chirper.Domain.WebApi.Cluster
                         }
                     }
                     cluster {
-                        seed-nodes = [""akka.tcp://chirper@localhost:8090""]
+                        seed-nodes = [""akka.tcp://chirper@chirper-host.default.svc.cluster.local:8090""]
                         roles = [""webapi""]
                     }
                 }

@@ -16,4 +16,6 @@ RUN dotnet publish Chirper.Domain.Host.csproj -c Release -o /app
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app .
-ENTRYPOINT ["dotnet", "Chirper.Domain.Host.dll"]
+ENTRYPOINT ["/bin/bash","get-dockerip.sh"]
+EXPOSE 8090
+CMD  ["dotnet", "Chirper.Domain.Host.dll"]
