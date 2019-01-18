@@ -29,12 +29,10 @@ spec:
               protocol: TCP
           livenessProbe:
             tcpSocket:
-              path: /
               port: akkaport
             initialDelaySeconds: 30
           readinessProbe:
             tcpSocket:
-              path: /
               port: akkaport
             initialDelaySeconds: 30
           resources:
