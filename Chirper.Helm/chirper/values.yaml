@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: vijayshinva/chirper-front-envoy
+  repository: nginx
   tag: latest
   pullPolicy: Always
 
@@ -17,7 +17,7 @@ service:
   port: 80
 
 ingress:
-  enabled: false
+  enabled: true
   annotations: {}
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
