@@ -6,13 +6,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Chirper.Domain\Chirper.Domain.csproj" />
+    <PackageReference Include="Microsoft.Orleans.Server" Version="2.2.4" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="get-dockerip.sh">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <ProjectReference Include="..\Chirper.Domain\Chirper.Domain.csproj" />
   </ItemGroup>
 
 </Project>

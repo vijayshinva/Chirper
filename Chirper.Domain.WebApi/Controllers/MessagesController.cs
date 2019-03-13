@@ -1,8 +1,8 @@
 ﻿using Chirper.Domain.Commands;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
-using System.Net.Http;
 
 namespace Chirper.Domain.WebApi.Controllers
 {
@@ -15,35 +15,35 @@ namespace Chirper.Domain.WebApi.Controllers
         {
             _mediator = mediator;
         }
-        // GET: api/Messages
+        // GET api/values
         [HttpGet]
-        public IEnumerable<string> Get()
+        public ActionResult<IEnumerable<string>> Get()
         {
+            _mediator.Publish(new PostMessage(12345, Guid.NewGuid().ToString("N"), $"This is a test {DateTime.Now.ToString()}"));
             return new string[] { "value1", "value2" };
         }
 
-        // GET: api/Messages/5
-        [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
+        // GET api/values/5
+        [HttpGet("{id}")]
+        public ActionResult<string> Get(int id)
         {
             return "value";
         }
 
-        // POST: api/Messages
+        // POST api/values
         [HttpPost]
-        public HttpResponseMessage Post([FromBody] string value)
+        public void Post([FromBody] string value)
         {
-            _mediator.Publish(new PostMessage(12345, "test@test.com", value));
-            return new HttpResponseMessage(System.Net.HttpStatusCode.Accepted);
         }
 
-        // PUT: api/Messages/5
+        // PUT api/values/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
         {
+            _mediator.Publish(new PostMessage(12345, Guid.NewGuid().ToString("N"), $"This is a test {DateTime.Now.ToString()}"));
         }
 
-        // DELETE: api/ApiWithActions/5
+        // DELETE api/values/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {

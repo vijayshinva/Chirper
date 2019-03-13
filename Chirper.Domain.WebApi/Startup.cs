@@ -1,11 +1,16 @@
-﻿using Chirper.Domain.WebApi.Cluster;
-using Chirper.Domain.WebApi.Hubs;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 
 namespace Chirper.Domain.WebApi
 {
@@ -23,14 +28,6 @@ namespace Chirper.Domain.WebApi
         {
             services.AddMediatR();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-            services.AddCors(options => options.AddPolicy("CorsPolicy",
-            builder =>
-            {
-                builder.AllowAnyMethod().AllowAnyHeader()
-                       .AllowCredentials();
-            }));
-            services.AddSingleton(typeof(IActorSystemWrapper), typeof(ActorSystemWrapper));
-            services.AddSignalR();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -40,12 +37,12 @@ namespace Chirper.Domain.WebApi
             {
                 app.UseDeveloperExceptionPage();
             }
-
-            app.UseCors("CorsPolicy");
-            app.UseSignalR(route =>
+            else
             {
-                route.MapHub<ChirpHub>("/chirphub");
-            });
+                app.UseHsts();
+            }
+
+            app.UseHttpsRedirection();
             app.UseMvc();
         }
     }

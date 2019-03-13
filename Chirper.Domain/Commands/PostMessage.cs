@@ -1,18 +1,25 @@
-﻿using Chirper.Domain.Responses;
+﻿using Chirper.Domain.Entities;
 using MediatR;
+using System;
 
 namespace Chirper.Domain.Commands
 {
     public sealed class PostMessage : INotification
     {
-        public long RequestId { get; }
-        public string ChirpUserId { get; }
-        public string Message { get; }
         public PostMessage(long requestId, string chirpUserId, string message)
         {
+            ChirpUserId = Guid.Parse(chirpUserId);
+            Message = new Message
+            {
+                Id = Guid.NewGuid(),
+                Text = message,
+                Time = DateTime.UtcNow,
+                Deleted = false
+            };
             RequestId = requestId;
-            ChirpUserId = chirpUserId;
-            Message = message;
         }
+        public Guid ChirpUserId { get; }
+        public Message Message { get; }
+        public long RequestId { get; }
     }
 }
