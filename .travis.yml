@@ -14,7 +14,8 @@ script:
   - dotnet test
   - docker build -t vijayshinva/chirper:latest -f Chirper.Domain.Host/Dockerfile .
   - docker build -t vijayshinva/chirper-identity:latest -f Chirper.Identity/Dockerfile .
-  - docker build -t vijayshinva/chirper-webapi:latest -f Chirper.Domain.WebApi/Dockerfile .
+  - docker build -t vijayshinva/chirper-webapi-messages:latest -f Chirper.WebApi.Messages/Dockerfile .
+  - docker build -t vijayshinva/chirper-webapi-wall:latest -f Chirper.WebApi.Wall/Dockerfile .
   - docker build -t vijayshinva/chirper-web:latest -f Chirper.Web/Dockerfile .
   - docker build -t vijayshinva/chirper-front-envoy:latest Chirper.Envoy
 

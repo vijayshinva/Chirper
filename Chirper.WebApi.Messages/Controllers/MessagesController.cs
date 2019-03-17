@@ -1,10 +1,12 @@
-﻿using Chirper.Domain.Commands;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Chirper.Domain.Commands;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
 
-namespace Chirper.Domain.WebApi.Controllers
+namespace Chirper.WebApi.Messages.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -19,7 +21,6 @@ namespace Chirper.Domain.WebApi.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
-            _mediator.Publish(new PostMessage(12345, Guid.NewGuid().ToString("N"), $"This is a test {DateTime.Now.ToString()}"));
             return new string[] { "value1", "value2" };
         }
 
@@ -40,7 +41,7 @@ namespace Chirper.Domain.WebApi.Controllers
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
         {
-            _mediator.Publish(new PostMessage(12345, Guid.NewGuid().ToString("N"), $"This is a test {DateTime.Now.ToString()}"));
+            _mediator.Publish(new PostMessage(12345, "53C0FDDF-666A-4D52-BAF9-3D09147B2581", value));
         }
 
         // DELETE api/values/5

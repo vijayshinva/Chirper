@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using MediatR;
+using Chirper.WebApi.Wall.Hubs;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Orleans;
 
-namespace Chirper.Domain.WebApi
+namespace Chirper.WebApi.Wall
 {
     public class Startup
     {
@@ -26,8 +26,12 @@ namespace Chirper.Domain.WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMediatR();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddSignalR();
+            
+            var client = new ClientBuilder().UseLocalhostClustering().Build();
+            client.Connect();
+            services.AddSingleton(typeof(IClusterClient), client);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -37,12 +41,10 @@ namespace Chirper.Domain.WebApi
             {
                 app.UseDeveloperExceptionPage();
             }
-            else
+            app.UseSignalR(route =>
             {
-                app.UseHsts();
-            }
-
-            app.UseHttpsRedirection();
+                route.MapHub<WallHub>("/wallhub");
+            });
             app.UseMvc();
         }
     }

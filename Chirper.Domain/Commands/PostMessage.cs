@@ -12,6 +12,7 @@ namespace Chirper.Domain.Commands
             Message = new Message
             {
                 Id = Guid.NewGuid(),
+                ChirpUserId = ChirpUserId,
                 Text = message,
                 Time = DateTime.UtcNow,
                 Deleted = false

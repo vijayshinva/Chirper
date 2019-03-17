@@ -9,7 +9,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Chirper.Domain.WebApi.Handlers
+namespace Chirper.WebApi.Messages.Handlers
 {
     public class PostMessageHandler : INotificationHandler<PostMessage>
     {
